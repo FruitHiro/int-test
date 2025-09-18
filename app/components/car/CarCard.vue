@@ -1,25 +1,13 @@
 <template>
   <div class="car-page__card card">
-    <h1>{{ title }}</h1>
-    <p class="car-page__info">
-      <span>Make:</span>
-      <span>{{ car.make }}</span>
-    </p>
-    <p class="car-page__info">
-      <span>Model:</span>
-      <span>{{ car.model }}</span>
-    </p>
-    <p class="car-page__info">
-      <span>Submodel:</span>
-      <span>{{ car.submodel }}</span>
-    </p>
-    <p class="car-page__info">
-      <span>Year:</span>
-      <span>{{ car.year }}</span>
-    </p>
-    <p class="car-page__info">
-      <span>Description:</span>
-      <span>{{ car.description }}</span>
+    <h1 v-if="title">{{ title }}</h1>
+    <p
+        v-for="key in order"
+        :key="key"
+        class="car-page__info"
+    >
+      <span>{{ key }}</span>
+      <span>{{ car[key as keyof CarInfo] }}</span>
     </p>
   </div>
 </template>
@@ -28,8 +16,9 @@
 import type { CarInfo } from "../../types/car";
 
 const props = defineProps<{
+  title?: string,
   car: CarInfo,
-  title: string
+  order: string[],
 }>()
 </script>
 

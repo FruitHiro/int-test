@@ -11,8 +11,9 @@
   >
     <div class="car-page__content">
       <CarCard
-        :car="carStore.carInfo"
         :title="carStore.carName"
+        :car="carStore.carInfo"
+        :order="carStore.carInfoOrder"
       />
     </div>
     <div class="car-page__content content_image">
