@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+h1 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+}
+
+.card {
+    border: 1px rgba(0, 0, 0, 0.1) solid;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    border-radius: .5rem;
+    padding: 1rem;
+}
