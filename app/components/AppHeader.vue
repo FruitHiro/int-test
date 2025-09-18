@@ -25,4 +25,8 @@ const carsListStore = useCarsListStore()
   align-items: center;
   gap: 2rem;
 }
+
+.logo {
+  font-weight: 700;
+}
 </style>

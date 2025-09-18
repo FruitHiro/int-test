@@ -1,16 +1,7 @@
 <template>
-  <UAlert
-      v-if="carsListStore.error"
-      color="warning"
-      title="Failed to load the cars list."
-      icon="i-lucide-message-square-warning"
-  />
-  <div
-      v-else
-      class="car-list"
-  >
+  <div class="car-list">
     <CarListItem
-      v-for="car in carsListStore.filteredCars"
+      v-for="car in list"
       :key="car.id"
       :car="car"
     />
@@ -19,20 +10,10 @@
 
 <script setup lang="ts">
 import type { CarItem } from "../../../types/car"
-import { useCarsListStore } from "../../../stores/carsListStore";
-import CarListItem from "./CarListItem.vue";
 
-const carsListStore = useCarsListStore()
-
-if (!carsListStore.fetched) {
-  const { data, error } = await useFetch<CarItem[]>('/api/carslist')
-
-  if (data.value) {
-    carsListStore.setCars(data.value)
-  }
-
-  carsListStore.error = !!error.value;
-}
+const props = defineProps<{
+  list: CarItem[]
+}>()
 </script>
 
 <style scoped lang="scss">
