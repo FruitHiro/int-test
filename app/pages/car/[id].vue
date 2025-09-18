@@ -1,10 +1,10 @@
 <template>
-  <div
+  <UAlert
       v-if="carStore.error"
-      class="error"
-  >
-    <p>Failed to load the cars list.</p>
-  </div>
+      color="warning"
+      title="Failed to load the cars list."
+      icon="i-lucide-message-square-warning"
+  />
   <div
       v-else-if="carStore.carInfo"
       class="car-page"
