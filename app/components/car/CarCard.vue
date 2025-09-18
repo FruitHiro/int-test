@@ -1,41 +1,74 @@
 <template>
-  <div class="car-card card">
-    <div class="car-card__info">
-      <UIcon name="i-lucide-car" class="size-5" />
-      <NuxtLink :to="carLink">{{ car.make }} {{ car.model }}</NuxtLink>
-    </div>
-    <div class="car-card__info">
-      <UIcon name="i-lucide-calendar" class="size-5" />
-      <p>{{ car.year }}</p>
-    </div>
+  <div class="car-page__card card">
+    <h1>{{ title }}</h1>
+    <p class="car-page__info">
+      <span>Make:</span>
+      <span>{{ car.make }}</span>
+    </p>
+    <p class="car-page__info">
+      <span>Model:</span>
+      <span>{{ car.model }}</span>
+    </p>
+    <p class="car-page__info">
+      <span>Submodel:</span>
+      <span>{{ car.submodel }}</span>
+    </p>
+    <p class="car-page__info">
+      <span>Year:</span>
+      <span>{{ car.year }}</span>
+    </p>
+    <p class="car-page__info">
+      <span>Description:</span>
+      <span>{{ car.description }}</span>
+    </p>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue"
-import type { CarItem } from "../../types/car"
+import type { CarInfo } from "../../types/car";
 
 const props = defineProps<{
-  car: CarItem
+  car: CarInfo,
+  title: string
 }>()
-
-const carLink = computed(() => `/car/${props.car.id}`)
 </script>
 
 <style scoped lang="scss">
-.car-card {
+.car-page {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: .5rem;
+  gap: 1rem;
+
+  &__content {
+    flex: 1;
+    order: 2;
+  }
 
   &__info {
     display: flex;
-    gap: .5rem;
-    align-items: center;
-    justify-content: start;
+    justify-content: space-between;
     width: 100%;
+    margin-bottom: .5rem;
+
+    span:last-child {
+      text-align: right;
+    }
+  }
+
+  &__image {
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.content_image {
+  order: 1;
+
+  @media (min-width: 768px) {
+    order: 2;
   }
 }
 </style>

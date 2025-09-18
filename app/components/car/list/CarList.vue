@@ -9,7 +9,7 @@
       v-else
       class="car-list"
   >
-    <CarCard
+    <CarListItem
       v-for="car in carsListStore.filteredCars"
       :key="car.id"
       :car="car"
@@ -18,9 +18,9 @@
 </template>
 
 <script setup lang="ts">
-import CarCard from "./CarCard.vue"
-import type { CarItem } from "../../types/car"
-import { useCarsListStore} from "../../stores/carsListStore";
+import type { CarItem } from "../../../types/car"
+import { useCarsListStore } from "../../../stores/carsListStore";
+import CarListItem from "./CarListItem.vue";
 
 const carsListStore = useCarsListStore()
 

@@ -3,19 +3,14 @@ export interface CarItem {
     year: number;
     make: string;
     model: string;
-    submodel: string;
+    submodel?: string;
 }
 
-export interface CarInfo {
-    id: number;
+export interface CarInfo extends CarItem {
     make_id?: number;
     model_id?: number;
     submodel_id?: number;
-    year: number;
-    make: string;
-    model: string;
     series?: string;
-    submodel?: string;
     trim?: string;
     description?: string;
     msrp?: number;

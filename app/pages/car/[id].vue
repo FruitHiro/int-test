@@ -10,29 +10,10 @@
       class="car-page"
   >
     <div class="car-page__content">
-      <div class="car-page__card card">
-        <h1>{{ carStore.carName }}</h1>
-        <p class="car-page__info">
-          <span>Make:</span>
-          <span>{{ carStore.carInfo.make }}</span>
-        </p>
-        <p class="car-page__info">
-          <span>Model:</span>
-          <span>{{ carStore.carInfo.model }}</span>
-        </p>
-        <p class="car-page__info">
-          <span>Submodel:</span>
-          <span>{{ carStore.carInfo.submodel }}</span>
-        </p>
-        <p class="car-page__info">
-          <span>Year:</span>
-          <span>{{ carStore.carInfo.year }}</span>
-        </p>
-        <p class="car-page__info">
-          <span>Description:</span>
-          <span>{{ carStore.carInfo.description }}</span>
-        </p>
-      </div>
+      <CarCard
+        :car="carStore.carInfo"
+        :title="carStore.carName"
+      />
     </div>
     <div class="car-page__content content_image">
       <div class="car-page__card card">
